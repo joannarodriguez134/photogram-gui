@@ -17,6 +17,7 @@ class User < ApplicationRecord
     :uniqueness => { :case_sensitive => false },
   })
 
+  # called association accessors
   def comments
     my_id = self.id
 

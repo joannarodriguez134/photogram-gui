@@ -31,4 +31,18 @@ class PhotosController < ApplicationController
 
   end
 
+  def create
+
+    @photo = Photo.new
+    @photo.image = params.fetch("poster_image")
+    @photo.caption = params.fetch("post_caption")
+    @photo.owner_id = params.fetch("poster_id")
+    if @photo.poster.valid?
+      @photo.save
+      redirect_to("/photos/#{@photo.id}")
+    else
+      redirect_to("/photos/#{@photo.id}")
+    end
+  end
+
 end

@@ -24,4 +24,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+    @user = User.new
+    @user.username = params.fetch("new_user_field")
+    if @user.valid?
+      @user.save
+      redirect_to("/users/#{@user.username}")
+    else
+      redirect_to("/users")
+    end
+  end
+
 end

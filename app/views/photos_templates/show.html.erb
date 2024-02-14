@@ -17,12 +17,12 @@
 
   <dt> Edit photo<dt>
   <dd> 
-    <form action="/update_photo/<%= @photo.id %>">
-      <label for="image_field">Image</label>
-      <input id="image_field" type="text" name="input_image" placeholder="Enter a placeholder for the image">
+    <form action="/update_photo/<%= @photo.id %>" method="post">
+      <label for="image_field" >Image</label>
+      <input id="image_field" type="text" name="input_image" placeholder="Enter a placeholder for the image" value="<%= @photo.image %>">
 
       <label for="caption_field">Caption</label>
-      <textarea id="caption_field" name="input_caption" placeholder="Enter a caption for the photo..."> hi </textarea>
+      <textarea id="caption_field" name="input_caption" placeholder="Enter a caption for the photo...">  <%= @photo.caption %></textarea>
 
       <button> Update photo </button>
 
@@ -68,7 +68,7 @@
         placeholder="Enter your author ID">
 
       <label for="comment_field">Comment</label>
-      <textarea id="comment_field" name="input_comment" placeholder="Enter a comment..."> hi </textarea>
+      <textarea id="comment_field" name="input_comment" placeholder="Enter a comment..."> </textarea>
 
       <button> Add comment </button>
     </form>

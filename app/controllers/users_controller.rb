@@ -35,4 +35,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+
+    old_username = params.fetch("username_path_id")
+
+    user_records = User.where(:username => old_username)
+    @the_user = user_records.at(0)
+
+    @the_user.username = params.fetch("input_username")
+    
+    if @the_user.valid?
+      @the_user.save
+      redirect_to("/users/#{@the_user.username}")
+    else
+      redirect_to("/users/#{@the_user.username}")
+    end
+  end
+
 end

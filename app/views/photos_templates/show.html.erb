@@ -37,7 +37,7 @@
 
 <h2> Comments </h2>
 
-<h3> Add a new comment </h3>
+
 
 
 <table>
@@ -56,19 +56,20 @@
   <% end %>
 </table>
 
+<h3> Add a new comment </h3>
 
-<form action="/add_comment">
+<form action="/insert_comment" method="post">
       <label for="photo_id_field">Photo  ID</label>
-      <input id="photo_id_field" type="text" name="input_image" placeholder="Enter the photo ID">
+      <input id="photo_id_field" type="text" name="insert_photo_id" placeholder="Enter the photo ID" value="<%=  @photo.id %>">
 
       <label for="author_id_field">Author ID</label>
       <input id="author_id_field" 
         type="text"
-        name="input_author_id" 
+        name="insert_author_id" 
         placeholder="Enter your author ID">
 
       <label for="comment_field">Comment</label>
-      <textarea id="comment_field" name="input_comment" placeholder="Enter a comment..."> </textarea>
+      <textarea id="comment_field" name="insert_comment_body" placeholder="Enter a comment..."> </textarea>
 
       <button> Add comment </button>
     </form>
